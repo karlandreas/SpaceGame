@@ -46,6 +46,7 @@
         [self setupSound];
         [self setupLayers];
         [self setupTitle];
+        [self setupStars];
     }
     return self;
 }
@@ -105,6 +106,23 @@
     _soundBoss = [SKAction playSoundFileNamed:@"boss.caf" waitForCompletion:NO];
     _soundCannon = [SKAction playSoundFileNamed:@"cannon.caf" waitForCompletion:NO];
     _soundTitle = [SKAction playSoundFileNamed:@"title.caf" waitForCompletion:NO];
+}
+
+- (void)setupStars { // 1
+    
+    NSArray *starsArray = @[@"Stars1.sks", @"Stars2.sks", @"Stars3.sks"];
+    
+    for (NSString *stars in starsArray) {
+        // 2
+        SKEmitterNode *emitter = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:stars ofType:nil]];
+        // 3
+        emitter.position = CGPointMake(self.size.width*1.5, self.size.height/2);
+        // 4
+        emitter.particlePositionRange = CGVectorMake(emitter.particlePositionRange.dx, self.size.height * 1.5);
+        // 5
+        emitter.zPosition = -1;
+        [_gameLayer addChild:emitter];
+    }
 }
 
 
