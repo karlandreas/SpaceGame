@@ -15,6 +15,7 @@
     
     SKLabelNode *_titleLabel1;
     SKLabelNode *_titleLabel2;
+    SKLabelNode *_playLabel;
     
     SKAction *_soundExplosionLarge;
     SKAction *_soundExplosionSmall;
@@ -91,6 +92,26 @@
     SKAction *scaleAction2 = [SKAction scaleTo:1 duration:1.0];
     scaleAction2.timingMode = SKActionTimingEaseOut;
     [_titleLabel2 runAction:[SKAction sequence:@[waitAction2, scaleAction2]]];
+    
+    // Play Label
+    _playLabel = [SKLabelNode labelNodeWithFontNamed:fontName];
+    [_playLabel setScale:0];
+    _playLabel.text = @"Tap to Play";
+    _playLabel.fontSize = [self fontSizeForDevice:32.0];
+    _playLabel.fontColor = [SKColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1.0];
+    _playLabel.position = CGPointMake(self.size.width/2, self.size.height * 0.25);
+    _playLabel.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
+    [_hudLayer addChild:_playLabel];
+    SKAction *waitAction3 = [SKAction waitForDuration:3.0];
+    SKAction *scaleAction3 = [SKAction scaleTo:1 duration:0.5];
+    scaleAction3.timingMode = SKActionTimingEaseOut;
+    SKAction *scaleUpAction = [SKAction scaleTo:1.1 duration:0.5];
+    scaleUpAction.timingMode = SKActionTimingEaseInEaseOut;
+    SKAction *scaleDownAction = [SKAction scaleTo:0.9 duration:0.5];
+    scaleDownAction.timingMode = SKActionTimingEaseInEaseOut;
+    SKAction *throbAction = [SKAction repeatActionForever:[SKAction sequence:@[scaleUpAction, scaleDownAction]]];
+    SKAction *displayAndThrob = [SKAction sequence:@[waitAction3, scaleAction3, throbAction]];
+    [_playLabel runAction:displayAndThrob];
 }
 
 - (void)setupSound {
