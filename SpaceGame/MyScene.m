@@ -66,6 +66,16 @@
     _titleLabel2.position = CGPointMake(self.size.width/2, self.size.height * 0.6);
     _titleLabel2.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
     [_hudLayer addChild:_titleLabel2];
+    
+    [_titleLabel1 setScale:0];
+    SKAction *waitAction1 = [SKAction waitForDuration:1.0];
+    SKAction *scaleAction1 = [SKAction scaleTo:1 duration:0.5];
+    [_titleLabel1 runAction:[SKAction sequence:@[waitAction1, scaleAction1]]];
+    
+    [_titleLabel2 setScale:0];
+    SKAction *waitAction2 = [SKAction waitForDuration:2.0];
+    SKAction *scaleAction2 = [SKAction scaleTo:1 duration:1.0];
+    [_titleLabel2 runAction:[SKAction sequence:@[waitAction2, scaleAction2]]];
 }
 
 
