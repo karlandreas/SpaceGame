@@ -12,8 +12,19 @@
     
     SKNode *_gameLayer;
     SKNode *_hudLayer;
+    
     SKLabelNode *_titleLabel1;
     SKLabelNode *_titleLabel2;
+    
+    SKAction *_soundExplosionLarge;
+    SKAction *_soundExplosionSmall;
+    SKAction *_soundLaserEnemy;
+    SKAction *_soundLaserShip;
+    SKAction *_soundShake;
+    SKAction *_soundPowerup;
+    SKAction *_soundBoss;
+    SKAction *_soundCannon;
+    SKAction *_soundTitle;
 }
 
 #pragma mark - Helper methods
@@ -32,6 +43,7 @@
     
     if (self = [super initWithSize:size]) {
         self.backgroundColor = [SKColor blackColor];
+        [self setupSound];
         [self setupLayers];
         [self setupTitle];
     }
@@ -71,7 +83,7 @@
     SKAction *waitAction1 = [SKAction waitForDuration:1.0];
     SKAction *scaleAction1 = [SKAction scaleTo:1 duration:0.5];
     scaleAction1.timingMode = SKActionTimingEaseOut;
-    [_titleLabel1 runAction:[SKAction sequence:@[waitAction1, scaleAction1]]];
+    [_titleLabel1 runAction:[SKAction sequence:@[waitAction1, _soundTitle, scaleAction1]]];
     
     [_titleLabel2 setScale:0];
     SKAction *waitAction2 = [SKAction waitForDuration:2.0];
@@ -80,5 +92,28 @@
     [_titleLabel2 runAction:[SKAction sequence:@[waitAction2, scaleAction2]]];
 }
 
+- (void)setupSound {
+    
+    [[SKTAudio sharedInstance] playBackgroundMusic:@"SpaceGame.caf"];
+    
+    _soundExplosionLarge = [SKAction playSoundFileNamed:@"explosion_large.caf" waitForCompletion:NO];
+    _soundExplosionSmall = [SKAction playSoundFileNamed:@"explosion_small.caf" waitForCompletion:NO];
+    _soundLaserEnemy = [SKAction playSoundFileNamed:@"laser_enemy.caf" waitForCompletion:NO];
+    _soundLaserShip = [SKAction playSoundFileNamed:@"laser_ship.caf" waitForCompletion:NO];
+    _soundShake = [SKAction playSoundFileNamed:@"shake.caf" waitForCompletion:NO];
+    _soundPowerup = [SKAction playSoundFileNamed:@"powerup.caf" waitForCompletion:NO];
+    _soundBoss = [SKAction playSoundFileNamed:@"boss.caf" waitForCompletion:NO];
+    _soundCannon = [SKAction playSoundFileNamed:@"cannon.caf" waitForCompletion:NO];
+    _soundTitle = [SKAction playSoundFileNamed:@"title.caf" waitForCompletion:NO];
+}
+
 
 @end
+
+
+
+
+
+
+
+
