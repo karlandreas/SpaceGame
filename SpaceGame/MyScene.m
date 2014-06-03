@@ -70,11 +70,13 @@
     [_titleLabel1 setScale:0];
     SKAction *waitAction1 = [SKAction waitForDuration:1.0];
     SKAction *scaleAction1 = [SKAction scaleTo:1 duration:0.5];
+    scaleAction1.timingMode = SKActionTimingEaseOut;
     [_titleLabel1 runAction:[SKAction sequence:@[waitAction1, scaleAction1]]];
     
     [_titleLabel2 setScale:0];
     SKAction *waitAction2 = [SKAction waitForDuration:2.0];
     SKAction *scaleAction2 = [SKAction scaleTo:1 duration:1.0];
+    scaleAction2.timingMode = SKActionTimingEaseOut;
     [_titleLabel2 runAction:[SKAction sequence:@[waitAction2, scaleAction2]]];
 }
 
