@@ -106,6 +106,8 @@
 		22C37644193E0B79006A4AFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22C37642193E0B79006A4AFC /* InfoPlist.strings */; };
 		22C37646193E0B79006A4AFC /* SpaceGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C37645193E0B79006A4AFC /* SpaceGameTests.m */; };
 		22C63C20193F475C000965AC /* LevelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C63C1F193F475C000965AC /* LevelManager.m */; };
+		22C63C23193F64EF000965AC /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C63C22193F64EF000965AC /* Entity.m */; };
+		22C63C26193F657C000965AC /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C63C25193F657C000965AC /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -233,6 +235,10 @@
 		22C37645193E0B79006A4AFC /* SpaceGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceGameTests.m; sourceTree = "<group>"; };
 		22C63C1E193F475C000965AC /* LevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelManager.h; sourceTree = "<group>"; };
 		22C63C1F193F475C000965AC /* LevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelManager.m; sourceTree = "<group>"; };
+		22C63C21193F64EF000965AC /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
+		22C63C22193F64EF000965AC /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		22C63C24193F657C000965AC /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		22C63C25193F657C000965AC /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -440,6 +446,10 @@
 				22C3762B193E0B79006A4AFC /* ViewController.m */,
 				22C3762D193E0B79006A4AFC /* MyScene.h */,
 				22C3762E193E0B79006A4AFC /* MyScene.m */,
+				22C63C21193F64EF000965AC /* Entity.h */,
+				22C63C22193F64EF000965AC /* Entity.m */,
+				22C63C24193F657C000965AC /* Player.h */,
+				22C63C25193F657C000965AC /* Player.m */,
 				22C63C1E193F475C000965AC /* LevelManager.h */,
 				22C63C1F193F475C000965AC /* LevelManager.m */,
 				22C37630193E0B79006A4AFC /* Spaceship.png */,
@@ -652,9 +662,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22C63C23193F64EF000965AC /* Entity.m in Sources */,
 				22C3762F193E0B79006A4AFC /* MyScene.m in Sources */,
 				222218EC193E151400C63068 /* SKTEffects.m in Sources */,
 				22C3762C193E0B79006A4AFC /* ViewController.m in Sources */,
+				22C63C26193F657C000965AC /* Player.m in Sources */,
 				222218E8193E151400C63068 /* SKEmitterNode+SKTExtras.m in Sources */,
 				222218E7193E151400C63068 /* SKAction+SKTExtras.m in Sources */,
 				222218ED193E151400C63068 /* SKTTimingFunctions.m in Sources */,

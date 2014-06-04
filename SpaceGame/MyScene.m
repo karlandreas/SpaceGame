@@ -8,6 +8,7 @@
 
 #import "MyScene.h" 
 #import "LevelManager.h"
+#import "Player.h"
 
 @implementation MyScene {
     
@@ -52,6 +53,7 @@
         [self setupTitle];
         [self setupStars];
         [self setupLevelManager];
+        [self setupPlayer];
     }
     return self;
 }
@@ -154,6 +156,14 @@
     _levelManager = [[LevelManager alloc] init];
 }
 
+- (void)setupPlayer {
+    _player = [[Player alloc] init];
+    _player.position = CGPointMake(-_player.size.width/2, self.size.height * 0.5);
+    _player.zPosition = 1;
+    _player.name = @"player";
+    [_gameLayer addChild:_player];
+}
+
 #pragma mark - Transitions
 - (void)startSpawn {
     
@@ -169,6 +179,19 @@
         SKAction *removeAction = [SKAction removeFromParent];
         [node runAction:[SKAction sequence:@[scaleAction, removeAction]]];
     }
+    
+    [self spawnPlayer];
+}
+
+- (void)spawnPlayer {
+    
+    SKAction *moveAction1 = [SKAction moveBy: CGVectorMake(_player.size.width/2 + self.size.width * 0.3, 0) duration:0.5];
+    moveAction1.timingMode = SKActionTimingEaseOut;
+    
+    SKAction *moveAction2 = [SKAction moveBy: CGVectorMake(-self.size.width * 0.2, 0) duration:0.5];
+    moveAction2.timingMode = SKActionTimingEaseInEaseOut;
+    
+    [_player runAction:[SKAction sequence:@[moveAction1, moveAction2]]];
 }
 
 #pragma mark - Touch detection
