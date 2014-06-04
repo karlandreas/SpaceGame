@@ -105,6 +105,7 @@
 		22C3763C193E0B79006A4AFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C37614193E0B78006A4AFC /* UIKit.framework */; };
 		22C37644193E0B79006A4AFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 22C37642193E0B79006A4AFC /* InfoPlist.strings */; };
 		22C37646193E0B79006A4AFC /* SpaceGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C37645193E0B79006A4AFC /* SpaceGameTests.m */; };
+		22C63C20193F475C000965AC /* LevelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 22C63C1F193F475C000965AC /* LevelManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -230,6 +231,8 @@
 		22C37641193E0B79006A4AFC /* SpaceGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpaceGameTests-Info.plist"; sourceTree = "<group>"; };
 		22C37643193E0B79006A4AFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		22C37645193E0B79006A4AFC /* SpaceGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpaceGameTests.m; sourceTree = "<group>"; };
+		22C63C1E193F475C000965AC /* LevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelManager.h; sourceTree = "<group>"; };
+		22C63C1F193F475C000965AC /* LevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -437,6 +440,8 @@
 				22C3762B193E0B79006A4AFC /* ViewController.m */,
 				22C3762D193E0B79006A4AFC /* MyScene.h */,
 				22C3762E193E0B79006A4AFC /* MyScene.m */,
+				22C63C1E193F475C000965AC /* LevelManager.h */,
+				22C63C1F193F475C000965AC /* LevelManager.m */,
 				22C37630193E0B79006A4AFC /* Spaceship.png */,
 				22C37632193E0B79006A4AFC /* Images.xcassets */,
 				22C37619193E0B78006A4AFC /* Supporting Files */,
@@ -520,6 +525,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = KAjohansen;
 				TargetAttributes = {
+					22C3760C193E0B78006A4AFC = {
+						DevelopmentTeam = V9QY8FVDZK;
+					};
 					22C37637193E0B79006A4AFC = {
 						TestTargetID = 22C3760C193E0B78006A4AFC;
 					};
@@ -653,6 +661,7 @@
 				222218EB193E151400C63068 /* SKTAudio.m in Sources */,
 				22C37623193E0B78006A4AFC /* AppDelegate.m in Sources */,
 				222218EA193E151400C63068 /* SKNode+SKTExtras.m in Sources */,
+				22C63C20193F475C000965AC /* LevelManager.m in Sources */,
 				22C3761F193E0B78006A4AFC /* main.m in Sources */,
 				222218EE193E151400C63068 /* SKTUtils.mm in Sources */,
 				222218E9193E151400C63068 /* SKNode+DebugDraw.m in Sources */,
@@ -790,10 +799,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpaceGame/SpaceGame-Prefix.pch";
 				INFOPLIST_FILE = "SpaceGame/SpaceGame-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -804,10 +816,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpaceGame/SpaceGame-Prefix.pch";
 				INFOPLIST_FILE = "SpaceGame/SpaceGame-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};

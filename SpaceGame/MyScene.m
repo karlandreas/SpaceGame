@@ -7,6 +7,7 @@
 //
 
 #import "MyScene.h" 
+#import "LevelManager.h"
 
 @implementation MyScene {
     
@@ -26,6 +27,8 @@
     SKAction *_soundBoss;
     SKAction *_soundCannon;
     SKAction *_soundTitle;
+    
+    LevelManager *_levelManager;
 }
 
 #pragma mark - Helper methods
@@ -48,6 +51,7 @@
         [self setupLayers];
         [self setupTitle];
         [self setupStars];
+        [self setupLevelManager];
     }
     return self;
 }
@@ -146,6 +150,35 @@
     }
 }
 
+- (void)setupLevelManager {
+    _levelManager = [[LevelManager alloc] init];
+}
+
+#pragma mark - Transitions
+- (void)startSpawn {
+    
+    _levelManager.gameState = GameStatePlay;
+    
+    [self runAction:_soundPowerup];
+    
+    NSArray *nodes = @[_titleLabel1, _titleLabel2, _playLabel];
+    
+    for (SKNode *node in nodes) {
+        SKAction *scaleAction = [SKAction scaleTo:0 duration:0.5];
+        scaleAction.timingMode = SKActionTimingEaseOut;
+        SKAction *removeAction = [SKAction removeFromParent];
+        [node runAction:[SKAction sequence:@[scaleAction, removeAction]]];
+    }
+}
+
+#pragma mark - Touch detection
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    if (_levelManager.gameState == GameStateMainMenu) {
+        [self startSpawn];
+        return;
+    }
+}
 
 @end
 
